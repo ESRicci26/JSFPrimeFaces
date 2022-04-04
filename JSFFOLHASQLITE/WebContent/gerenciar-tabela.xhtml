@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml">
+
+    <h:form>
+        <p:toolbar>
+            <p:toolbarGroup>
+                <p:commandButton value="Alterar" action="#{tabelaLegaisBean.adicionar()}" update="@form"></p:commandButton>
+                <p:commandButton value="Listar" action="#{tabelaLegaisBean.listar()}" update="@form"></p:commandButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <p:messages autoUpdate="true" showDetail="true"></p:messages>
+        
+        <p:fieldset legend="Objetos">
+        
+            <p:panelGrid columns="6">
+            
+                <p:outputLabel value="ID"></p:outputLabel>
+                <p:inputText value="#{tabelaLegaisBean.tabRicci.tabid}" id="idtabela" label="IdTabela" disabled="true"  >
+                </p:inputText>
+
+                <p:outputLabel value="Fx01 INSS De"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssfx001}" id="fx01inssde" label="Fx01InssDe" >
+                </p:inputNumber>
+            
+                <p:outputLabel value="Fx02 INSS Ate"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssfx002}" id="fx02inssate" label="Fx02InssAte" >
+                </p:inputNumber>
+
+                <p:outputLabel value="Perc INSS Fx 01"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssperc001}" id="percinssfx01" label="PercInssFx01" >
+                </p:inputNumber>
+
+            
+                <p:outputLabel value="Fx03 INSS De"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssfx003}" id="fx03inssde" label="Fx03InssDe" >
+                </p:inputNumber>
+            
+                <p:outputLabel value="Fx04 INSS Ate"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssfx004}" id="fx04inssate" label="Fx04InssAte" >
+                </p:inputNumber>
+
+                <p:outputLabel value="Perc INSS Fx 02"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssperc002}" id="percinssfx02" label="PercInssFx02" >
+                </p:inputNumber>
+
+                <p:outputLabel value="Fx05 INSS De"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssfx005}" id="fx05inssde" label="Fx05InssDe" >
+                </p:inputNumber>
+            
+                <p:outputLabel value="Fx06 INSS Ate"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssfx006}" id="fx06inssate" label="Fx06InssAte" >
+                </p:inputNumber>
+            
+                <p:outputLabel value="Perc INSS Fx 03"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssperc003}" id="percinssfx03" label="PercInssFx03" >
+                </p:inputNumber>
+            
+                <p:outputLabel value="Val Teto INSS"></p:outputLabel>
+                <p:inputNumber value="#{tabelaLegaisBean.tabRicci.tabinssteto}" id="vltetinss" label="VlTetInss" >
+                </p:inputNumber>
+            
+                
+            </p:panelGrid>
+            
+            
+            <p:dataTable value="#{tabelaLegaisBean.tabLegais}" var="tableg">
+                <p:column>
+                    <p:commandButton value="Editar" action="#{tabelaLegaisBean.editar(tableg)}" update="@form"></p:commandButton>
+                    <p:commandButton value="Deletar" action="#{tabelaLegaisBean.deletar(tableg)}" update="@form" disabled="true"></p:commandButton>
+                </p:column>
+                
+                <p:column headerText="ID Tab" sortBy="#{tableg.tabid}">
+                    <h:outputText value="#{tableg.tabid}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="Vl Máximo Teto" sortBy="#{tableg.tabinssfx006}">
+                    <h:outputText value="#{tableg.tabinssfx006}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="% Máximo Teto" sortBy="#{tableg.tabinssperc003}">
+                    <h:outputText value="#{tableg.tabinssperc003}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="Vl Teto INSS" sortBy="#{tableg.tabinssteto}">
+                    <h:outputText value="#{tableg.tabinssteto}"></h:outputText>
+                </p:column>
+                
+               
+                
+            </p:dataTable>
+            
+            
+        </p:fieldset>
+    </h:form>
+</ui:decorate>
+

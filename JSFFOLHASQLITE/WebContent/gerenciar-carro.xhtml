@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:f="http://xmlns.jcp.org/jsf/core"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml">
+
+    <h:form>
+        <p:toolbar>
+            <p:toolbarGroup>
+                <p:commandButton value="Adicionar" action="#{carroBean.adicionar()}" update="@form"></p:commandButton>
+                <p:commandButton value="Listar" action="#{carroBean.listar()}" update="@form" ></p:commandButton>
+                <p:commandButton value="Calcular" action="#{carroBean.calcular()}" update="@form" disabled="true"></p:commandButton>
+                <p:commandButton value="Selecao" action="#{carroBean.MostrarItemClicado()}" update="@form"></p:commandButton>
+                <p:commandButton value="TabelaCalcular" action="#{carroBean.tabelacalc()}" update="@form"></p:commandButton>
+                <p:commandButton value="CalcVlPrest" actionListener="#{carroBean.calcularDadosTela()}"
+				update="@form" icon="ui-icon-circlesmall-plus" style="background-color: #7FFFD4"></p:commandButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <p:messages autoUpdate="true" showDetail="true"></p:messages>
+        
+        <p:fieldset legend="Objetos">
+        
+            <p:panelGrid columns="6">
+                <h:outputLabel value="Modelo"></h:outputLabel>
+                <p:inputText value="#{carroBean.carro.modelo}"></p:inputText>
+
+                <h:outputLabel value="Fabricante"></h:outputLabel>
+                <p:inputText value="#{carroBean.carro.fabricante}"></p:inputText>
+
+                <h:outputLabel value="Cor"></h:outputLabel>
+                <p:inputText value="#{carroBean.carro.cor}"></p:inputText>
+
+                <h:outputLabel value="Ano"></h:outputLabel>
+                <p:calendar value="#{carroBean.carro.ano}" pattern="dd/MM/yyyy" ></p:calendar>
+                
+                <p:outputLabel value="Valor Carro"></p:outputLabel>
+                <p:inputNumber value="#{carroBean.carro.valorcarro}" id="vlcarro" label="ValorCarro"  >
+                </p:inputNumber>
+                
+                <p:outputLabel value="Valor Parcela"></p:outputLabel>
+                <p:inputNumber value="#{carroBean.carro.valorparcela}" id="vlparc" label="ValorParcela" >
+                </p:inputNumber>
+
+                <p:outputLabel value="Qtd Parcela"></p:outputLabel>
+                <p:inputNumber value="#{carroBean.carro.valorqtdvezes}" id="qtdparc" label="QtdParcelas" >
+                </p:inputNumber>
+
+                <h:outputLabel value="ID"></h:outputLabel>
+                <p:inputText value="#{carroBean.carro.id}" disabled="true"></p:inputText>
+                
+                
+                <h:outputLabel value="Clicar"></h:outputLabel>
+                <p:selectBooleanCheckbox value="#{carroBean.carro.selected}" />
+                
+                <p:outputLabel value="Valor INSS"></p:outputLabel>
+                <p:inputNumber value="#{carroBean.carro.valorinss}" id="valinss" label="ValInss" disabled="true" >
+                </p:inputNumber>
+                
+                <p:outputLabel value="Valor IRRF"></p:outputLabel>
+                <p:inputNumber value="#{carroBean.carro.valorirrf}" id="valirrf" label="ValIRRF" >
+                </p:inputNumber>
+                
+                <p:outputLabel value="Valor Sal.Familia"></p:outputLabel>
+                <p:inputNumber value="#{carroBean.carro.valorsalfam}" id="valsalfam" label="ValSalFam" >
+                </p:inputNumber>
+                
+                
+            </p:panelGrid>
+            
+            
+            <p:dataTable value="#{carroBean.carros}" var="carro">
+                <p:column>
+                    <p:commandButton value="Editar" action="#{carroBean.editar(carro)}" update="@form"></p:commandButton>
+                    <p:commandButton value="Deletar" action="#{carroBean.deletar(carro)}" update="@form"></p:commandButton>
+                </p:column>
+                <p:column headerText="Modelo" sortBy="#{carro.modelo}">
+                    <h:outputText value="#{carro.modelo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Fabricante" sortBy="#{carro.fabricante}">
+                    <h:outputText value="#{carro.fabricante}"></h:outputText>
+                </p:column>
+                <p:column headerText="Cor" sortBy="#{carro.cor}">
+                    <h:outputText value="#{carro.cor}"></h:outputText>
+                </p:column>
+
+                <p:column headerText="Ano" sortBy="#{carro.ano}">
+                    <h:outputText value="#{carro.ano}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+                    </h:outputText>
+                </p:column>
+                
+                
+            </p:dataTable>
+            
+            
+        </p:fieldset>
+    </h:form>
+</ui:decorate>
+
