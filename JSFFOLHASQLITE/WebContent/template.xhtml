@@ -1,23 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Sistemas Carros</title>
-    </h:head>
-    <h:body>
-        <h1>Sistemas Carros</h1>
-        <h:form>
-            <p:menubar>
-                <p:menuitem value="Home" url="index.jsf"></p:menuitem>
-                <p:menuitem value="Gerenciar Carros" url="gerenciar-carro.jsf"></p:menuitem>
-                <p:menuitem value="Tabela Legais" url="gerenciar-tabela.jsf"></p:menuitem>
-            </p:menubar>
-        </h:form>
-        <hr/>
-        <ui:insert></ui:insert>
-    </h:body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Sistemas Carros</title>
+</h:head>
+<h:body>
+	<h1>Sistemas Carros</h1>
+	<h:form>
+
+		<p>Usuário Logado: #{login.user}</p>
+		<p:commandLink action="#{login.logout}" value="Logout"></p:commandLink>
+
+		<p:menubar>
+			<p:menuitem value="Home" url="index.jsf"></p:menuitem>
+			<p:menuitem value="Gerenciar Carros" url="gerenciar-carro.jsf"></p:menuitem>
+			<p:menuitem value="Tabela Legais" url="gerenciar-tabela.jsf"></p:menuitem>
+			<p:menuitem value="Ajax" url="ajax-listener.jsf"></p:menuitem>
+			<p:menuitem value="InputMask" url="inputMask.jsf"></p:menuitem>
+		</p:menubar>
+	</h:form>
+	<hr />
+	<ui:insert></ui:insert>
+</h:body>
 </html>
 

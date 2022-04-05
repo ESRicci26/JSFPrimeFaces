@@ -4,7 +4,12 @@ package com.carro;
 
 public class ErroSistema extends Exception {
 
-    public ErroSistema(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ErroSistema(String message) {
         super(message);
     }
 

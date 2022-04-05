@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" template="template.xhtml">
+  
+<h:head>  
+<title>Ajax e PrimeFaces</title>  
+</h:head>  
+<h:body>
+  
+<h2>Ajax Event</h2>  
+<h:form id="form1">  
+<h:panelGrid columns="3" cellpadding="5">  
+<h:outputText value="KeyUp Event: " />  
+<p:inputText id="nome" value="#{listenerBean.name}" placeholder="Enter Text">  
+<p:ajax event="keyup" update="out" />  
+</p:inputText>  
+<h:outputText id="out" value="#{listenerBean.name}" />  
+</h:panelGrid>  
+</h:form>
+
+<h2>Ajax com Ação no Botão Executar </h2>  
+<h:form id="form2">  
+<h:panelGrid columns="4" cellpadding="5">  
+<h:outputLabel for="name" value="Nome:" style="font-weight:bold" />  
+<p:inputText id="name" value="#{listenerBean.name}" />  
+<p:commandButton value="Executar" update="display" icon="ui-icon-transferthick-e-w" style="background-color: #40E0D0" />  
+<h:outputText id="display" value="#{listenerBean.name}" />  
+</h:panelGrid>  
+</h:form>
+
+<h2>Ajax Listener Executa Método BackEnd Texto Maiúsculo</h2>  
+<h:form id="form3">  
+<h:panelGrid columns="3">  
+<h:outputText value="Enter: " />  
+<p:inputText id="counter" value="#{listenerBean.lastName}" placeholder="Enter Text">  
+<p:ajax event="keyup" update="ricci" actionListener="#{listenerBean.hojeEvent()}" />  
+</p:inputText>  
+</h:panelGrid>  
+<h:panelGrid id="ricci">  
+<h2>Texto Maiúsculo</h2>  
+<h:outputText value="#{listenerBean.lastName}" />  
+</h:panelGrid>  
+</h:form>
+
+<h2>Ajax com Ação no Botão Executar SOMAR </h2>  
+<h:form id="form4">  
+<h:panelGrid columns="7" cellpadding="2">  
+<h:outputLabel for="num1" value="Nome:" style="font-weight:bold" />  
+<p:inputText id="num1" value="#{listenerBean.numero1}" />
+<h:outputLabel for="num2" value="Nome:" style="font-weight:bold" />  
+<p:inputText id="num2" value="#{listenerBean.numero2}" />
+<p:commandButton value="Calcular" update="result" icon="ui-icon-calculator" style="background-color: #FF1493" action="#{listenerBean.somaCampo()}" /> 
+<h:outputLabel for="res1" value="Resultado:" style="font-weight:bold" /> 
+<h:inputText id="result" value="#{listenerBean.resultado}"  />  
+</h:panelGrid>  
+</h:form>
+
+</h:body>  
+</ui:decorate>  

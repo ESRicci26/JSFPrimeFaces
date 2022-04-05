@@ -10,11 +10,11 @@
     <h:form>
         <p:toolbar>
             <p:toolbarGroup>
-                <p:commandButton value="Adicionar" action="#{carroBean.adicionar()}" update="@form"></p:commandButton>
-                <p:commandButton value="Listar" action="#{carroBean.listar()}" update="@form" ></p:commandButton>
-                <p:commandButton value="Calcular" action="#{carroBean.calcular()}" update="@form" disabled="true"></p:commandButton>
-                <p:commandButton value="Selecao" action="#{carroBean.MostrarItemClicado()}" update="@form"></p:commandButton>
-                <p:commandButton value="TabelaCalcular" action="#{carroBean.tabelacalc()}" update="@form"></p:commandButton>
+                <p:commandButton value="Incluir/Alterar" action="#{carroBean.adicionar()}" update="@form" icon="ui-icon-circle-plus" style="background-color: #1E90FF"></p:commandButton>
+                <p:commandButton value="Listar" action="#{carroBean.listar()}" update="@form" icon="ui-icon-search" style="background-color: #82a43a" ></p:commandButton>
+                <p:commandButton value="Calcular" action="#{carroBean.calcular()}" update="@form" icon="ui-icon-calculator" style="background-color: #FF1493" disabled="true"></p:commandButton>
+                <p:commandButton value="Selecao" action="#{carroBean.MostrarItemClicado()}" update="@form" icon="ui-icon-circle-zoomin" style="background-color: #FFFF00" ></p:commandButton>
+                <p:commandButton value="TabelaCalcular" action="#{carroBean.tabelacalc()}" update="@form" icon="ui-icon-calculator" style="background-color: #FF1493" ></p:commandButton>
                 <p:commandButton value="CalcVlPrest" actionListener="#{carroBean.calcularDadosTela()}"
 				update="@form" icon="ui-icon-circlesmall-plus" style="background-color: #7FFFD4"></p:commandButton>
             </p:toolbarGroup>
@@ -73,8 +73,8 @@
             
             <p:dataTable value="#{carroBean.carros}" var="carro">
                 <p:column>
-                    <p:commandButton value="Editar" action="#{carroBean.editar(carro)}" update="@form"></p:commandButton>
-                    <p:commandButton value="Deletar" action="#{carroBean.deletar(carro)}" update="@form"></p:commandButton>
+                    <p:commandButton value="Editar" action="#{carroBean.editar(carro)}" update="@form" style="background-color: #FF7F00" ></p:commandButton>
+                    <p:commandButton value="Deletar" action="#{carroBean.deletar(carro)}" update="@form" icon="ui-icon-closethick" style="background-color: #CD5C5C" ></p:commandButton>
                 </p:column>
                 <p:column headerText="Modelo" sortBy="#{carro.modelo}">
                     <h:outputText value="#{carro.modelo}"></h:outputText>
